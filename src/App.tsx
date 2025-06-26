@@ -60,8 +60,6 @@ function App() {
   const [selectedCoin, setSelectedCoin] = useState('bitcoin');
   const [prices, setPrices] = useState<{ [key: string]: CoinData }>({});
   const [loading, setLoading] = useState(true);
-  const [priceHistory, setPriceHistory] = useState<{ [key: string]: string[] }>({});
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -70,11 +68,6 @@ function App() {
         for (const coin of coins) {
           const response = await axios.get(API_ENDPOINTS.PRICE(coin));
           newPrices[coin] = response.data;
-          
-          setPriceHistory(prev => ({
-            ...prev,
-            [coin]: [...(prev[coin] || []), response.data.preco].slice(-10)
-          }));
         }
         setPrices(newPrices);
         setLoading(false);
@@ -127,7 +120,7 @@ function App() {
     <ErrorBoundary>
       <div className="app">
         <div className="container">
-          <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+          <div className="sidebar">
             <div className="sidebar-header">
               <h2>CryptoNight</h2>
             </div>
