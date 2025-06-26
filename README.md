@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+# CryptoNight Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend React para o projeto CryptoNight - aplicação de monitoramento de preços de criptomoedas.
 
-## Available Scripts
+## 🚀 Deploy no Vercel
 
-In the project directory, you can run:
+### Pré-requisitos
+- Conta no [Vercel](https://vercel.com)
+- Backend hospedado e funcionando
+- Git configurado
 
-### `npm start`
+### Passos para Deploy
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Fork/Clone o repositório**
+   ```bash
+   git clone <seu-repositorio>
+   cd cryptonight-frontend
+   ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. **Configure as variáveis de ambiente no Vercel**
+   - Acesse o dashboard do Vercel
+   - Vá em Settings > Environment Variables
+   - Adicione a variável:
+     - **Name**: `REACT_APP_API_URL`
+     - **Value**: URL do seu backend (ex: `https://seu-backend.herokuapp.com`)
 
-### `npm test`
+3. **Deploy automático**
+   - Conecte seu repositório GitHub ao Vercel
+   - O Vercel detectará automaticamente que é um projeto React
+   - Configure o build command: `npm run build`
+   - Configure o output directory: `build`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Deploy manual (opcional)**
+   ```bash
+   npm install
+   npm run build
+   # Faça upload da pasta build para o Vercel
+   ```
 
-### `npm run build`
+### Configuração Local
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Instale as dependências**
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Configure as variáveis de ambiente**
+   ```bash
+   cp env.example .env.local
+   # Edite o .env.local com a URL do seu backend
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Execute o projeto**
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+## 📁 Estrutura do Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+src/
+├── config/
+│   └── api.ts          # Configuração da API
+├── images/             # Logos das criptomoedas
+├── App.tsx            # Componente principal
+└── ...
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔧 Configurações
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Variáveis de Ambiente
+- `REACT_APP_API_URL`: URL do backend (obrigatória)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Scripts Disponíveis
+- `npm start`: Executa o projeto em modo desenvolvimento
+- `npm run build`: Gera build de produção
+- `npm test`: Executa os testes
 
-## Learn More
+## 🌐 URLs da API
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+O frontend consome as seguintes rotas do backend:
+- `GET /price/{coin}`: Obtém o preço atual de uma criptomoeda
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Funcionalidades
+
+- Dashboard em tempo real com preços de criptomoedas
+- Seleção de diferentes moedas (Bitcoin, Ethereum, BNB, Dogecoin, XRP)
+- Interface responsiva e moderna
+- Atualização automática a cada 30 segundos
+
+## 🛠️ Tecnologias
+
+- React 19
+- TypeScript
+- Material-UI
+- Chart.js
+- Axios
+- Vercel (deploy)
