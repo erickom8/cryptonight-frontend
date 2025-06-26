@@ -29,5 +29,18 @@
   ],
   "env": {
     "REACT_APP_API_URL": "@react_app_api_url"
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "master": true,
+      "dev": true,
+      "develop": true
+    }
+  },
+  "functions": {
+    "app/api/**/*.js": {
+      "maxDuration": 10
+    }
   }
 } 
