@@ -37,10 +37,5 @@
       "dev": true,
       "develop": true
     }
-  },
-  "functions": {
-    "app/api/**/*.js": {
-      "maxDuration": 10
-    }
   }
 } 
