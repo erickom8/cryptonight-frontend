@@ -28,7 +28,7 @@
     }
   ],
   "env": {
-    "REACT_APP_API_URL": "@react_app_api_url"
+    "REACT_APP_API_URL": "http://ec2-52-91-124-91.compute-1.amazonaws.com:8000/"
   },
   "git": {
     "deploymentEnabled": {
