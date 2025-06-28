@@ -13,26 +13,24 @@ fi
 echo "📦 Instalando dependências..."
 npm install
 
-# Verificar se o build funciona
-echo "🔨 Testando build..."
+# Fazer build
+echo "🔨 Fazendo build..."
 npm run build
 
+# Verificar se o build foi bem-sucedido
 if [ $? -eq 0 ]; then
     echo "✅ Build realizado com sucesso!"
+    echo "📁 Pasta build criada com sucesso"
+    echo ""
+    echo "🌐 Para fazer deploy no Vercel:"
+    echo "1. Acesse https://vercel.com"
+    echo "2. Importe este projeto"
+    echo "3. Configure a variável REACT_APP_API_URL"
+    echo "4. Deploy automático será feito"
 else
     echo "❌ Erro no build. Verifique os erros acima."
     exit 1
 fi
 
-# Verificar se o Vercel CLI está instalado
-if ! command -v vercel &> /dev/null; then
-    echo "📥 Instalando Vercel CLI..."
-    npm install -g vercel
-fi
-
-# Fazer deploy
-echo "🌐 Fazendo deploy no Vercel..."
-vercel --prod
-
-echo "🎉 Deploy concluído!"
-echo "📝 Lembre-se de configurar a variável REACT_APP_API_URL no dashboard do Vercel" 
+echo ""
+echo "�� Script concluído!" 
